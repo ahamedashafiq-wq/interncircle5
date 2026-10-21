@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ShopSphere mini e-commerce demo store." />
+  <title>ShopSphere — Mini Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="ShopSphere home">ShopSphere<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#products-section">Shop</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="cart-button" id="cartButton" type="button" aria-label="Open shopping cart">
+      <span aria-hidden="true">🛍</span> Cart <span class="cart-badge" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE EVERYDAY EDIT</p>
+        <h1>Good finds.<br /><span>Better days.</span></h1>
+        <p class="hero-description">Discover useful essentials, thoughtfully picked for your everyday life.</p>
+        <a class="primary-link" href="#products-section">Explore products <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Decorative shopping illustration" role="img">
+        <div class="sun"></div>
+        <div class="art-card card-back"></div>
+        <div class="art-card card-front">
+          <span class="bag-handle"></span>
+          <span class="bag-face">S.</span>
+          <span class="bag-caption">GOOD THINGS INSIDE</span>
+        </div>
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✳</span>
+        <span class="art-dot dot-one"></span><span class="art-dot dot-two"></span>
+      </div>
+    </section>
+
+    <section class="shop-section" id="products-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURATED FOR YOU</p>
+          <h2>Featured products</h2>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products" />
+        </label>
+      </div>
+      <div class="category-row" id="categoryFilters" aria-label="Filter products by category">
+        <button class="category-chip active" type="button" data-category="All">All items</button>
+        <button class="category-chip" type="button" data-category="Tech">Tech</button>
+        <button class="category-chip" type="button" data-category="Lifestyle">Lifestyle</button>
+        <button class="category-chip" type="button" data-category="Accessories">Accessories</button>
+      </div>
+      <div class="products-grid" id="products" aria-live="polite"></div>
+      <p class="empty-state hidden" id="emptyProducts">No products found. Try another search.</p>
+    </section>
+
+    <section class="cart-section" id="cartSection">
+      <div class="cart-heading">
+        <div>
+          <p class="eyebrow">YOUR PICKS</p>
+          <h2>Your shopping cart <span class="cart-count-small" id="cartTitleCount">(0 items)</span></h2>
+        </div>
+        <button class="text-button" id="clearCartButton" type="button">Clear cart</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div id="emptyCart" class="empty-cart">
+        <div class="empty-cart-icon" aria-hidden="true">🛒</div>
+        <p>Your cart is waiting for something good.</p>
+        <a href="#products-section">Browse products</a>
+      </div>
+      <div class="cart-summary" id="cartSummary">
+        <div><span>Subtotal</span><strong id="cartSubtotal">₹0.00</strong></div>
+        <div><span>Delivery</span><strong id="deliveryCost">Free</strong></div>
+        <div class="summary-total"><span>Total</span><strong id="cartTotal">₹0.00</strong></div>
+        <button class="checkout-button" id="checkoutButton" type="button">Continue to checkout <span aria-hidden="true">→</span></button>
+        <p class="secure-note">Demo checkout · No real payment is collected</p>
+      </div>
+    </section>
+
+    <section class="about-strip" id="about">
+      <div class="about-icon">✦</div>
+      <div><h2>Little things, thoughtfully chosen.</h2><p>A student-built mini store made with HTML, CSS and JavaScript.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#">ShopSphere<span>.</span></a>
+    <p>© <span id="year"></span> ShopSphere. Built for learning.</p>
+    <a href="#products-section">Back to top ↑</a>
+  </footer>
+
+  <dialog id="checkoutModal" class="checkout-modal" aria-labelledby="checkoutTitle">
+    <button class="modal-close" id="closeModalX" type="button" aria-label="Close checkout">×</button>
+    <p class="eyebrow">ALMOST YOURS</p>
+    <h2 id="checkoutTitle">Checkout preview</h2>
+    <p class="modal-intro">Review your order before placing this demo order.</p>
+    <div id="checkoutSummary" class="checkout-summary"></div>
+    <div class="modal-total-row"><span>Total</span><strong id="modalTotal">₹0.00</strong></div>
+    <p class="demo-note">This is a front-end demo. It does not process payments or save orders to a server.</p>
+    <div class="modal-actions">
+      <button class="secondary-button" id="closeModal" type="button">Keep shopping</button>
+      <button class="checkout-button" id="placeOrder" type="button">Place demo order</button>
+    </div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
